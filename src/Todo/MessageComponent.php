@@ -36,13 +36,13 @@ class MessageComponent implements MessageComponentInterface
         }
 
         switch ($message->type) {
-            case 'post':
+            case 'create':
                 $this->create($message->data);
                 break;
             case 'delete':
                 $this->delete($message->data);
                 break;
-            case 'put':
+            case 'update':
                 $this->update($message->data);
                 break;
             default:
@@ -85,7 +85,7 @@ class MessageComponent implements MessageComponentInterface
             foreach ($cursor as $obj) {
                 $connSocket->send(json_encode(
                     array(
-                        'type' => 'post',
+                        'type' => 'create',
                         'data' => array(
                             'id' => $obj['_id']->{'$id'},
                             'title' => $obj['title'],
