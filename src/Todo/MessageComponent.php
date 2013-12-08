@@ -37,7 +37,8 @@ class MessageComponent implements MessageComponentInterface
 
         switch ($message->type) {
             case 'create':
-                $this->create($message->data);
+                $message->data = $this->create($message->data);
+                $msg = json_encode($message);
                 break;
             case 'delete':
                 $this->delete($message->data);
@@ -50,10 +51,7 @@ class MessageComponent implements MessageComponentInterface
         }
 
         foreach ($this->clients as $client) {
-            if ($from !== $client) {
-                // The sender is not the receiver, send to each client connected
                 $client->send($msg);
-            }
         }
 
     }
@@ -113,6 +111,12 @@ class MessageComponent implements MessageComponentInterface
             $collection->insert($data);
 
             $conn->close();
+
+            $data = (array)$data;
+            $data['id']=$data['_id']->{'$id'};
+            unset($data['_id']);
+
+            return $data;
         } catch (\MongoConnectionException $e) {
             die('Error connecting to MongoDB server');
         } catch (\MongoException $e) {
