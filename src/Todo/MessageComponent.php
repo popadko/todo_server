@@ -24,6 +24,8 @@ class MessageComponent implements MessageComponentInterface
 
         $this->sendAll($conn);
 
+        $conn->send(json_encode(array('type' => 'open')));
+
         $this->log("New connection! ({$conn->resourceId})");
     }
 
@@ -44,14 +46,18 @@ class MessageComponent implements MessageComponentInterface
                 $this->delete($message->data);
                 break;
             case 'update':
-                $this->update($message->data);
+                $message = $this->update($message->data);
+                if($message) {
+                    $from->send(json_encode($message));
+                    return;
+                }
                 break;
             default:
                 return;
         }
 
         foreach ($this->clients as $client) {
-                $client->send($msg);
+            $client->send($msg);
         }
 
     }
@@ -88,6 +94,7 @@ class MessageComponent implements MessageComponentInterface
                             'id' => $obj['_id']->{'$id'},
                             'title' => $obj['title'],
                             'completed' => $obj['completed'],
+                            'update' => $obj['update'],
                         )
                     )
                 ));
@@ -108,15 +115,21 @@ class MessageComponent implements MessageComponentInterface
 
             $collection = $this->getCollection($conn);
 
-            $collection->insert($data);
+            $record = array(
+                'title' => $data->title,
+                'completed' => $data->completed,
+                'update' => (string)$data->update,
+            );
+
+            $collection->insert($record);
 
             $conn->close();
 
-            $data = (array)$data;
-            $data['id']=$data['_id']->{'$id'};
-            unset($data['_id']);
+            $record = (array)$record;
+            $record['id'] = $record['_id']->{'$id'};
+            unset($record['_id']);
 
-            return $data;
+            return $record;
         } catch (\MongoConnectionException $e) {
             die('Error connecting to MongoDB server');
         } catch (\MongoException $e) {
@@ -137,13 +150,26 @@ class MessageComponent implements MessageComponentInterface
 
             $doc = $collection->findOne($criteria);
 
-            $data = (array)$data;
+            if ((int)$doc['update'] > (int)$data->update) {
+                $record = array(
+                    'id' => $doc['_id']->{'$id'},
+                    'title' => $doc['title'],
+                    'completed' => $doc['completed'],
+                    'update' => $doc['update'],
+                );
+            } else {
+                $record = array(
+                    'title' => $data->title,
+                    'completed' => $data->completed,
+                    'update' => (string)$data->update,
+                );
 
-            unset($data['id']);
-
-            $collection->save(array_merge($doc, $data));
+                $collection->save(array_merge($doc, $record));
+                $record=false;
+            }
 
             $conn->close();
+            return $record;
         } catch (\MongoConnectionException $e) {
             die('Error connecting to MongoDB server');
         } catch (\MongoException $e) {
