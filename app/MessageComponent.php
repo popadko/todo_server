@@ -86,7 +86,8 @@ class MessageComponent implements MessageComponentInterface
                     'id'        => $model->getKey(),
                     'title'     => $model->title,
                     'completed' => $model->completed,
-                    'update'    => $model->update,
+                    'create'    => $model->created_at->timestamp,
+                    'update'    => $model->updated_at->timestamp,
                 )
             )));
         }
@@ -94,30 +95,38 @@ class MessageComponent implements MessageComponentInterface
 
     protected function create($data)
     {
-        $result = $this->model->create(array(
-            'title'     => $data->title,
-            'completed' => $data->completed,
-            'update'    => $data->update,
-        ))->getAttributes();
-        return $result;
+        $model = $this->model->create(array(
+            'title'      => $data->title,
+            'completed'  => $data->completed,
+            'created_at' => intval($data->update / 1000),
+            'updated_at' => intval($data->update / 1000),
+        ));
+        return array(
+            'id'        => $model->getKey(),
+            'title'     => $model->title,
+            'completed' => $model->completed,
+            'create'    => $model->created_at->timestamp,
+            'update'    => $model->updated_at->timestamp,
+        );
     }
 
     protected function update($data)
     {
         $model = $this->model->find($data->id);
 
-        if ((int)$model['update'] > (int)$data->update) {
+        if ($model->updated_at->timestamp > intval($data->update/1000)) {
             $record = array(
                 'id'        => $model->getKey(),
                 'title'     => $model->title,
                 'completed' => $model->completed,
-                'update'    => $model->update,
+                'create'    => $model->created_at->timestamp,
+                'update'    => $model->updated_at->timestamp,
             );
         } else {
             $model->update(array(
-                'title'     => $data->title,
-                'completed' => $data->completed,
-                'update'    => $data->update,
+                'title'      => $data->title,
+                'completed'  => $data->completed,
+                'updated_at' => intval($data->update / 1000),
             ));
             $record = false;
         }
