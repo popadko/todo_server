@@ -59,13 +59,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/olegpopadko/phpmig.git",
-                "reference": "a925f05e7cbe3a73f4aa8217984b1e426ad13352"
+                "url": "https://github.com/davedevelopment/phpmig.git",
+                "reference": "7099e1345c639f43870d7030312128aae4558434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/olegpopadko/phpmig/zipball/a925f05e7cbe3a73f4aa8217984b1e426ad13352",
-                "reference": "a925f05e7cbe3a73f4aa8217984b1e426ad13352",
+                "url": "https://api.github.com/repos/davedevelopment/phpmig/zipball/7099e1345c639f43870d7030312128aae4558434",
+                "reference": "7099e1345c639f43870d7030312128aae4558434",
                 "shasum": ""
             },
             "require": {
@@ -96,6 +96,7 @@
                     "Phpmig": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -106,7 +107,7 @@
                     "homepage": "http://davedevelopment.co.uk"
                 },
                 {
-                    "name": "David Nielsen",
+                    "name": "David Neilsen",
                     "email": "david@panmedia.co.nz"
                 }
             ],
@@ -116,10 +117,7 @@
                 "database migrations",
                 "migrations"
             ],
-            "support": {
-                "source": "https://github.com/OlegPopadko/phpmig/tree/master"
-            },
-            "time": "2014-03-24 10:30:54"
+            "time": "2014-04-29 10:32:51"
         },
         {
             "name": "evenement/evenement",
@@ -794,17 +792,17 @@
         },
         {
             "name": "symfony/class-loader",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/ClassLoader",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ClassLoader.git",
-                "reference": "d36352a610b33da398349807d63b8a792310ba7e"
+                "reference": "5101f3094903a95db3552a834a9c6585afc10d3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/d36352a610b33da398349807d63b8a792310ba7e",
-                "reference": "d36352a610b33da398349807d63b8a792310ba7e",
+                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/5101f3094903a95db3552a834a9c6585afc10d3b",
+                "reference": "5101f3094903a95db3552a834a9c6585afc10d3b",
                 "shasum": ""
             },
             "require": {
@@ -842,21 +840,21 @@
             ],
             "description": "Symfony ClassLoader Component",
             "homepage": "http://symfony.com",
-            "time": "2014-02-11 13:52:09"
+            "time": "2014-04-16 10:34:31"
         },
         {
             "name": "symfony/config",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "e98693981385224bd31667e56204f311d9e0f98e"
+                "reference": "2effc67af6f21a0d267210b72d0b0b691d113528"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/e98693981385224bd31667e56204f311d9e0f98e",
-                "reference": "e98693981385224bd31667e56204f311d9e0f98e",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/2effc67af6f21a0d267210b72d0b0b691d113528",
+                "reference": "2effc67af6f21a0d267210b72d0b0b691d113528",
                 "shasum": ""
             },
             "require": {
@@ -892,21 +890,21 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-26 11:35:33"
+            "time": "2014-04-22 08:11:06"
         },
         {
             "name": "symfony/console",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "ef20f1f58d7f693ee888353962bd2db336e3bbcb"
+                "reference": "2e452005b1e1d003d23702d227e23614679eb5ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/ef20f1f58d7f693ee888353962bd2db336e3bbcb",
-                "reference": "ef20f1f58d7f693ee888353962bd2db336e3bbcb",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/2e452005b1e1d003d23702d227e23614679eb5ca",
+                "reference": "2e452005b1e1d003d23702d227e23614679eb5ca",
                 "shasum": ""
             },
             "require": {
@@ -947,21 +945,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-01 17:35:04"
+            "time": "2014-04-27 13:34:57"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "4708b8cd41984a5ba29fe7dd40716f7f761ac501"
+                "reference": "e539602e5455aa086c0e81e604745af7789e4d8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/4708b8cd41984a5ba29fe7dd40716f7f761ac501",
-                "reference": "4708b8cd41984a5ba29fe7dd40716f7f761ac501",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/e539602e5455aa086c0e81e604745af7789e4d8a",
+                "reference": "e539602e5455aa086c0e81e604745af7789e4d8a",
                 "shasum": ""
             },
             "require": {
@@ -1003,21 +1001,21 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2014-02-11 13:52:09"
+            "time": "2014-04-16 10:34:31"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "b717952487176a993e9b12a08b87beae25ae419c"
+                "reference": "a3af8294bcce4a7c1b2892363b0c9d8109affad4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/b717952487176a993e9b12a08b87beae25ae419c",
-                "reference": "b717952487176a993e9b12a08b87beae25ae419c",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/a3af8294bcce4a7c1b2892363b0c9d8109affad4",
+                "reference": "a3af8294bcce4a7c1b2892363b0c9d8109affad4",
                 "shasum": ""
             },
             "require": {
@@ -1052,21 +1050,21 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-26 11:55:03"
+            "time": "2014-04-16 10:34:31"
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/HttpFoundation",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "11ad7352c7bfa12145a0df8e1c4c303c585ce169"
+                "reference": "22c4dee84271ad0cd08d19f26d89f2878e11159b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/11ad7352c7bfa12145a0df8e1c4c303c585ce169",
-                "reference": "11ad7352c7bfa12145a0df8e1c4c303c585ce169",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/22c4dee84271ad0cd08d19f26d89f2878e11159b",
+                "reference": "22c4dee84271ad0cd08d19f26d89f2878e11159b",
                 "shasum": ""
             },
             "require": {
@@ -1107,21 +1105,21 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-26 11:35:33"
+            "time": "2014-04-18 21:02:05"
         },
         {
             "name": "symfony/routing",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/Routing",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "b2fdea8b60400bb84e4931d71101ebbb3a08c1eb"
+                "reference": "74229f66e16bce6d2415ca44d4756f8e7ea880f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/b2fdea8b60400bb84e4931d71101ebbb3a08c1eb",
-                "reference": "b2fdea8b60400bb84e4931d71101ebbb3a08c1eb",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/74229f66e16bce6d2415ca44d4756f8e7ea880f8",
+                "reference": "74229f66e16bce6d2415ca44d4756f8e7ea880f8",
                 "shasum": ""
             },
             "require": {
@@ -1175,21 +1173,21 @@
                 "uri",
                 "url"
             ],
-            "time": "2014-02-11 13:52:09"
+            "time": "2014-04-23 14:04:21"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd"
+                "reference": "65539ecde838f9c0d18b006b2101e3deb4b5c9ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd",
-                "reference": "77a41c2835ab7cfe8bf6d15e25d3af8f3eb3bacd",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/65539ecde838f9c0d18b006b2101e3deb4b5c9ff",
+                "reference": "65539ecde838f9c0d18b006b2101e3deb4b5c9ff",
                 "shasum": ""
             },
             "require": {
@@ -1224,7 +1222,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-03-12 18:29:58"
+            "time": "2014-04-18 20:37:09"
         }
     ],
     "packages-dev": [

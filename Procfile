@@ -1,0 +1,1 @@
+web: php app/bin/server.php
