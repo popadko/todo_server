@@ -10,8 +10,7 @@ class CreateTodoTable extends Migration
     public function up()
     {
         $container = $this->getContainer();
-        $container['capsule']->schema()->create('todos', function($table)
-        {
+        $container['capsule']->schema()->create('todos', function ($table) {
             $table->increments('id');
             $table->string('title', 100);
             $table->boolean('completed');

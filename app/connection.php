@@ -16,14 +16,14 @@ if ($connection = getenv('DATABASE_URL')) {
     $url = explode('@', $connection);
 
     $credentials = explode(':', $url[0]);
-    $username = $credentials[0];
-    $password = $credentials[1];
+    $username    = $credentials[0];
+    $password    = $credentials[1];
 
     $serverDB = explode('/', $url[1]);
 
     $server = explode(':', $serverDB[0]);
-    $host = $server[0];
-    $port = $server[1];
+    $host   = $server[0];
+    $port   = $server[1];
 
     $database = $serverDB[1];
 }

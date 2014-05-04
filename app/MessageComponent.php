@@ -114,7 +114,7 @@ class MessageComponent implements MessageComponentInterface
     {
         $model = $this->model->find($data->id);
 
-        if ($model->updated_at->timestamp > intval($data->update/1000)) {
+        if ($model->updated_at->timestamp > intval($data->update / 1000)) {
             $record = array(
                 'id'        => $model->getKey(),
                 'title'     => $model->title,
