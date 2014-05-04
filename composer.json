@@ -1,10 +1,18 @@
 {
     "require": {
-        "cboden/Ratchet": "0.3.*"
+        "php": ">=5.4.24",
+        "cboden/Ratchet": "0.3.*",
+        "illuminate/database": "4.1.*",
+        "davedevelopment/phpmig": "dev-master",
+        "pimple/pimple": "1.*"
     },
     "autoload": {
-        "psr-0": {
-            "Todo": "src"
-        }
+        "classmap": [
+            "app",
+            "app/models"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": "./cook.sh"
     }
 }
