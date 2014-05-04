@@ -11,5 +11,8 @@
             "app",
             "app/models"
         ]
+    },
+    "scripts": {
+        "post-install-cmd": "./cook.sh"
     }
 }
