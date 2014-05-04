@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "317611f58eb2164e49380f936b8725e0",
+    "hash": "dc5ed7f727aff227bec32ca89f543f6c",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -1236,7 +1236,8 @@
         "davedevelopment/phpmig": 20
     },
     "platform": {
-        "php": ">=5.4.24"
+        "php": ">=5.4.24",
+        "ext-mbstring": "*"
     },
     "platform-dev": [
 

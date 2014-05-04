@@ -1,6 +1,7 @@
 {
     "require": {
         "php": ">=5.4.24",
+        "ext-mbstring": "*",
         "cboden/Ratchet": "0.3.*",
         "illuminate/database": "4.1.*",
         "davedevelopment/phpmig": "dev-master",
