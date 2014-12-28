@@ -1,11 +1,10 @@
 {
     "require": {
-        "php": ">=5.4.24",
-        "ext-mbstring": "*",
+        "php": ">=5.4",
         "cboden/Ratchet": "0.3.*",
-        "illuminate/database": "4.1.*",
-        "davedevelopment/phpmig": "dev-master",
-        "pimple/pimple": "1.*"
+        "illuminate/database": "4.2.*",
+        "illuminate/container": "4.2.*",
+        "davedevelopment/phpmig": "1.*"
     },
     "autoload": {
         "classmap": [

@@ -2,12 +2,11 @@
 
 # phpmig.php
 
-include_once 'connection.php';
+require_once 'connection.php';
 
-use \Pimple,
-    \Phpmig\Adapter\Illuminate\Database;
+use \Phpmig\Adapter\Illuminate\Database;
 
-$container = new Pimple();
+$container = new \Illuminate\Container\Container();
 
 $container['capsule'] = $capsule;
 
