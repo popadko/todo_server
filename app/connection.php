@@ -5,8 +5,8 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 $capsule = new Capsule;
 
 $connection = [];
-if ($connection = getenv('DATABASE_URL')) {
-    $connection = parse_url($connection);
+if ($database_url = getenv('DATABASE_URL')) {
+    $connection = parse_url($database_url);
     $aliases = [
         'user' => 'username',
         'pass' => 'password',
