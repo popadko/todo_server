@@ -4,42 +4,37 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
 $capsule = new Capsule;
 
-$host     = 'localhost';
-$database = 'test';
-$username = 'root';
-$password = '';
-$port     = '5432';
-
+$connection = [];
 if ($connection = getenv('DATABASE_URL')) {
-    $connection = substr($connection, strpos($connection, '://') + 3);
+    $connection = parse_url($connection);
+    $aliases = [
+        'user' => 'username',
+        'pass' => 'password',
+        'path' => 'database',
+    ];
 
-    $url = explode('@', $connection);
+    foreach (array_only($connection, array_keys($aliases)) as $key => $value) {
+        $connection[$aliases[$key]] = $value;
+        unset($connection[$key]);
+    }
 
-    $credentials = explode(':', $url[0]);
-    $username    = $credentials[0];
-    $password    = $credentials[1];
-
-    $serverDB = explode('/', $url[1]);
-
-    $server = explode(':', $serverDB[0]);
-    $host   = $server[0];
-    $port   = $server[1];
-
-    $database = $serverDB[1];
+    if (isset($connection['database'])) {
+        $connection['database'] = substr($connection['database'], 1);
+    }
 }
 
-$capsule->addConnection(array(
+$capsule->addConnection(array_merge([
     'driver'    => 'pgsql',
-    'host'      => $host,
-    'database'  => $database,
-    'username'  => $username,
-    'password'  => $password,
+    'host'      => 'localhost',
+    'database'  => 'test',
+    'username'  => 'root',
+    'password'  => '',
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',
-    'port'      => $port,
+    'port'      => '5432',
     'schema'    => 'public'
-));
+], $connection));
 
 $capsule->setAsGlobal();
 
