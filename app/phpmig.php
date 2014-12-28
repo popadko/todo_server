@@ -15,7 +15,7 @@ $container['phpmig.adapter'] = $container->share(function () use ($container) {
 });
 
 $container['phpmig.migrations_path'] = function () {
-    return __DIR__ . DIRECTORY_SEPARATOR . 'migrations';
+    return __DIR__ . '/migrations';
 };
 
 return $container;
