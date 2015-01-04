@@ -10,12 +10,15 @@ class CreateTodoTable extends Migration
     public function up()
     {
         $container = $this->getContainer();
-        $container['capsule']->schema()->create('todos', function ($table) {
-            $table->increments('id');
-            $table->string('title', 100);
-            $table->boolean('completed');
-            $table->timestamps();
-        });
+        $container['capsule']->getConnection()->statement('
+            CREATE TABLE todos (
+                id uuid PRIMARY KEY NOT NULL,
+                title VARCHAR(100) NOT NULL,
+                completed BOOLEAN NOT NULL DEFAULT FALSE,
+                created_at TIMESTAMP NOT NULL,
+                updated_at TIMESTAMP NOT NULL
+            )
+        ');
     }
 
     /**
