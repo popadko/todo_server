@@ -2,8 +2,11 @@
     "require": {
         "php": ">=5.4",
         "cboden/Ratchet": "0.3.*",
-        "illuminate/database": "4.2.*",
-        "illuminate/container": "4.2.*",
+        "illuminate/database": "dev-master",
+        "illuminate/container": "dev-master",
+        "illuminate/contracts": "dev-master",
+        "illuminate/support": "dev-master",
+        "symfony/var-dumper": "2.6.*",
         "davedevelopment/phpmig": "1.*"
     },
     "autoload": {
