@@ -25,6 +25,8 @@ class MessageController implements MessageControllerInterface
      */
     public function handle($message)
     {
+        $message = $this->handleFields($message);
+
         /**
          * @var $model \Illuminate\Database\Eloquent\Model
          */
@@ -38,6 +40,30 @@ class MessageController implements MessageControllerInterface
             return $model->delete($message);
         }
 
-        return $model->update($message);
+        $model->fill($message);
+
+        return $model->save($message);
+    }
+
+    protected function handleFields($message)
+    {
+        foreach ($message as $key => &$value) {
+            $method = 'handle'.studly_case($key).'Field';
+            if (method_exists($this, $method)) {
+                $value = call_user_func(array($this, $method), $value);
+            }
+        }
+
+        return $message;
+    }
+
+    protected function handleCreatedAtField($value)
+    {
+        return intval($value / 1000);
+    }
+
+    protected function handleUpdatedAtField($value)
+    {
+        return intval($value / 1000);
     }
 }
