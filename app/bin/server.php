@@ -11,7 +11,7 @@ require __DIR__ . '/../connection.php';
 $server = IoServer::factory(
     new HttpServer(
         new WsServer(
-            new MessageComponent(new Todo())
+            new MessageComponent(new JsonMessageConverter(), new MessageController(new Todo()))
         )
     ),
     getenv('PORT') ? : 8080
