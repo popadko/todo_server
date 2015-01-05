@@ -7,9 +7,16 @@ class MessageController implements MessageControllerInterface
      */
     protected $model;
 
-    public function __construct(Illuminate\Database\Eloquent\Model $model)
+    /**
+     * @var MessageTransformInterface
+     */
+    protected $transformer;
+
+    public function __construct(Illuminate\Database\Eloquent\Model $model, MessageTransformInterface $transformer)
     {
         $this->model = $model;
+
+        $this->transformer = $transformer;
     }
 
     /**
@@ -17,7 +24,12 @@ class MessageController implements MessageControllerInterface
      */
     public function getAll()
     {
-        return $this->model->all();
+        return $this->model->all()->transform(function ($model) {
+            /**
+             * @var $model \Illuminate\Database\Eloquent\Model
+             */
+            return $this->transformer->in($model->toArray());
+        });
     }
 
     /**
@@ -25,7 +37,7 @@ class MessageController implements MessageControllerInterface
      */
     public function handle($message)
     {
-        $message = $this->handleFields($message);
+        $message = $this->transformer->in($message);
 
         /**
          * @var $model \Illuminate\Database\Eloquent\Model
@@ -43,27 +55,5 @@ class MessageController implements MessageControllerInterface
         $model->fill($message);
 
         return $model->save($message);
-    }
-
-    protected function handleFields($message)
-    {
-        foreach ($message as $key => &$value) {
-            $method = 'handle'.studly_case($key).'Field';
-            if (method_exists($this, $method)) {
-                $value = call_user_func(array($this, $method), $value);
-            }
-        }
-
-        return $message;
-    }
-
-    protected function handleCreatedAtField($value)
-    {
-        return intval($value / 1000);
-    }
-
-    protected function handleUpdatedAtField($value)
-    {
-        return intval($value / 1000);
     }
 }

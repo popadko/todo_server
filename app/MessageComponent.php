@@ -42,12 +42,12 @@ class MessageComponent implements MessageComponentInterface
     {
         $this->controller->handle($this->converter->in($message));
 
-        array_walk($this->clients, function ($client) use ($message) {
+        foreach ($this->clients as $client) {
             /**
              * @var $client ConnectionInterface
              */
             $client->send($message);
-        });
+        };
     }
 
     public function onClose(ConnectionInterface $connection)
