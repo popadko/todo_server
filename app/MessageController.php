@@ -28,7 +28,7 @@ class MessageController implements MessageControllerInterface
             /**
              * @var $model \Illuminate\Database\Eloquent\Model
              */
-            return $this->transformer->in($model->toArray());
+            return $this->transformer->out($model->attributesToArray());
         });
     }
 

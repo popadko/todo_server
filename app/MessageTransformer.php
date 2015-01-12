@@ -44,11 +44,11 @@ class MessageTransformer implements MessageTransformInterface
 
     protected function outCreatedAtField($value)
     {
-        return $value->timestamp;
+        return $value * 1000;
     }
 
     protected function outUpdatedAtField($value)
     {
-        return $value->timestamp;
+        return $value * 1000;
     }
 }
