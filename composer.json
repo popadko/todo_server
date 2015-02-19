@@ -1,4 +1,5 @@
 {
+    "version": "0.1.0",
     "require": {
         "php": ">=5.4",
         "cboden/Ratchet": "0.3.*",
